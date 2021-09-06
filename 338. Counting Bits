@@ -1,0 +1,23 @@
+class Solution {
+public:
+     void helper(int i,int n,vector<int> &dp)
+     {     if(i>n) return;
+         if(i%2==0){
+          dp[i]=dp[i/2];
+         }
+         
+         else
+         {
+             dp[i]=dp[i-1]+1;
+         }
+          helper(i+1,n,dp);
+    
+     }
+    vector<int> countBits(int n) {
+            vector<int> dp(n+1);
+        for(int i=0;i<n+1;i++)
+               dp[i]=0;
+        helper(1,n,dp);
+         return dp;
+    }
+};
